@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Add New Program</h2>
+  <form [formGroup]="programForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Program Name</mat-label>
+      <input matInput formControlName="programName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Level of Education</mat-label>
+      <mat-select matNativeControl formControlName="levelOfEducationId" required class="custom-select">
+        <mat-option *ngFor="let level of levelsOfEducation" [value]="level.id">{{ level.levelName }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Certificate</mat-label>
+    <mat-select matNativeControl formControlName="academicCertificateId" required class="custom-select">
+      <mat-option *ngFor="let certificate of certificates" [value]="certificate.id">
+        {{ certificate.certificateName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+   <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Program Fee</mat-label>
+          <input type="number" matInput formControlName="programFee" required >
+        </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Minimum Marks Required</mat-label>
+      <input type="number" matInput formControlName="minimumMarksRequired" required>
+    </mat-form-field>
+
+    <button mat-raised-button class="small-button" color="primary" type="submit" [disabled]="!programForm.valid">
+      Add Program
+    </button>
+  </form>
+
+  <hr>
+
+
+</div>
+<h2>Programs <mat-icon>swap_vert</mat-icon></h2>
+<div class="card-container">
+  <div class="card" *ngFor="let program of programs; let index = index">
+    <div class="card-content">
+      <h3>{{ program.programName }}</h3>
+      <p><strong>Academic Certificate:</strong> {{ getCertificiateName(program.academicCertificateId) }}</p>
+      <p><strong>Program Fee:</strong> {{ program.programFee }}</p>
+      <p><strong>Level of Education:</strong> {{ getLevelName(program.levelOfEducationId) }}</p>
+      <p><strong>Minimum Marks Required:</strong> {{ program.minimumMarksRequired }}</p>
+      <div class="card-actions">
+        <button mat-icon-button class="small-button" color="primary" (click)="editProgram(index)" aria-label="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="small-button" color="warn" (click)="deleteProgram(program.id)" aria-label="Delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  
+  </div>
+</div>

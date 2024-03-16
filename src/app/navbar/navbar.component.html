@@ -1,0 +1,79 @@
+<div class="navbar">
+  <div class="picrtorial">
+    <img routerLink="/" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Meta-Logo.png/2560px-Meta-Logo.png" alt="">
+  </div>
+  <div class="notify">
+   NOTIFICATIONS
+  <mat-icon matBadge="15" matBadgeColor="warn" class="notifications">notifications</mat-icon> 
+</div>
+  <div class="hamburger-icon2" (click)="toggleSidebar()">&#9776;</div>
+</div>
+
+<aside class="sidebar" [class.open]="isOpen" (clickOutside)="isOpen=false">
+  <div class="app-container" [class.sidebar-open]="isOpen">
+    <div id="bar" class="hamburger-icon" >&#9776;</div>
+  </div> 
+
+
+  <ul class="nav-links">
+    <li><h2 class="heading">MENU</h2></li>
+    <li  (click)="closeSidebar()">
+      <span routerLink="/home">
+        <mat-icon class="material-icons">home</mat-icon>
+        <span class="link-text">Home</span>
+      </span>
+    </li>
+    <li  (click)="closeSidebar()">
+      <span routerLink="/student">
+        <mat-icon class="material-icons">badge</mat-icon>
+        <span class="link-text">Student</span>
+      </span>
+    </li>
+    <li  (click)="closeSidebar()">
+      <span routerLink="/levelOfEducation">
+        <mat-icon class="material-icons">leaderboard</mat-icon>
+        <span class="link-text">Level of Education</span>
+      </span>
+    </li>
+    <li  (click)="closeSidebar()">
+      <span routerLink="/program">
+        <mat-icon class="material-icons">school</mat-icon>
+        <span class="link-text">Program</span>
+      </span>
+    </li>
+    <li (click)="closeSidebar()">
+      <span routerLink="/certificate">
+        <mat-icon class="material-icons">card_membership</mat-icon>
+        <span class="link-text">Certificate</span>
+      </span>
+    </li>
+    <li (click)="closeSidebar()">
+      <span routerLink="/application">
+        <mat-icon class="material-icons">mail</mat-icon>
+        <span class="link-text">Application</span>
+      </span>
+    </li>
+    <li (click)="closeSidebar()">
+      <span routerLink="/admin">
+        <mat-icon class="material-icons">admin_panel_settings</mat-icon>
+        <span class="link-text">Admin</span>
+      </span>
+    </li>
+    <li (click)="closeSidebar()">
+      <span routerLink="/applicationHistory">
+        <mat-icon class="material-icons">history</mat-icon>
+        <span class="link-text">Application History</span>
+      </span>
+    </li>
+    <li (click)="closeSidebar()">
+      <span routerLink="/applicationPayment">
+        <mat-icon class="material-icons">receipt_long</mat-icon>
+        <span class="link-text">Application Payments</span>
+      </span>
+    </li>
+  </ul>
+</aside>
+
+<div class="main-content" >
+  <router-outlet></router-outlet>
+</div>

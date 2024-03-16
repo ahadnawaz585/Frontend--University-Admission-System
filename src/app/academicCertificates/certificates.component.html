@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Add New Certificate</h2>
+    <form [formGroup]="certificateForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+      <button mat-raised-button class="small-button" color="primary" type="submit" [disabled]="!certificateForm.valid">Add certificate</button>
+    </form>
+    <hr>
+    <h2 (click)="sortCertificates()">Certificates List<mat-icon>swap_vert</mat-icon></h2>
+    <ul>
+      <li *ngFor="let certificate of certificates; let i = index">
+        <div class="student-item">
+          <div class="student-info">
+            <div>
+              <b>{{ serialNumbers[i] }}.         </b>
+              <b>{{ certificate.certificateName }}</b>
+            </div>
+            <div class="change">
+              <button mat-icon-button class="small-button" color="primary" (click)="editCertificate(certificate)" aria-label="Edit">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button class="small-button" color="warn" (click)="deleteCertificate(certificate.id)" aria-label="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="edit-section" *ngIf="selectedCertificate && selectedCertificate.id === certificate.id && isEditing">
+            <h3>Edit Certificate</h3>
+            <form>
+              <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="selectedCertificate.name" name="name" required>
+              </mat-form-field>
+              <button mat-raised-button class="small-button" color="primary" (click)="saveEditedCertificate()">Save</button>
+              <button mat-raised-button class="small-button" color="warn" (click)="cancelEditing()">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

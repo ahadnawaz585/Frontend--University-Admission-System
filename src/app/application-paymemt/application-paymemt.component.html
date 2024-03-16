@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Add New Payment</h2>
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Student Name</mat-label>
+      <mat-select formControlName="applicationId" required>
+        <mat-option *ngFor="let application of applications" [value]="application.id" >
+          {{ getStudentNameByApplicantId(application.id) }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Payment Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="paymentDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Bank Name</mat-label>
+      <input matInput formControlName="bankName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Amount Paid</mat-label>
+      <input matInput type="number" formControlName="amountPaid" required>
+    </mat-form-field>
+
+    <button mat-raised-button class="small-button" color="primary" type="submit" [disabled]="!paymentForm.valid">
+      Add Payment
+    </button>
+  </form>
+
+  <hr>
+</div>
+
+  
+  <h2>Payments <mat-icon>swap_vert</mat-icon></h2>
+  <div class="card-container">
+    <div class="card" *ngFor="let payment of payments; let index = index">
+      <div class="card-content">
+        <p><strong>Student Name:</strong> {{ getStudentNameByApplicantId(payment.applicationId) }}</p>
+        <p><strong>Payment Date:</strong> {{ payment.paymentDate | date }}</p>
+        <p><strong>Bank Name:</strong> {{ payment.bankName }}</p>
+        <p><strong>Amount Paid:</strong> {{ payment.amountPaid }}</p>
+        <div class="card-actions">
+          <button mat-icon-button class="small-button" color="primary" (click)="editPayment(index)" aria-label="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="small-button" color="warn" (click)="deletePayment(payment.id)" aria-label="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

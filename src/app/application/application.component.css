@@ -1,0 +1,169 @@
+
+.container,.AdmissionForm {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeDown 0.5s ease-in-out forwards;
+}
+.AdmissionForm{
+  border: 1px solid #bebebe;
+  margin-top: 20px;
+}
+.submitted{
+  margin-top: 15px;
+}
+#progress-labels{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+#priority-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Optional: Adjust width or other styling for form fields */
+#priority-container mat-form-field {
+  width: 100%;
+}
+
+/* Style the table layout */
+#priority-container table {
+  width: 100%;
+}
+
+/* Optional: Style the table cells */
+#priority-container table td {
+  padding: 10px;
+}
+
+
+.priority-number {
+  width: 30px;
+  height: 30px;
+  margin-top: 25px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#priority-container .mat-form-field {
+  width: 100%;
+}
+
+
+/* Individual labels */
+.progress-label.start {
+  margin-right: auto;
+}
+
+.progress-label.end {
+  margin-left: auto;
+}
+
+/* Additional styling for hover effect or other interactions */
+
+
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.container {
+  position: relative;
+}
+
+#Application-submission{
+  margin-top: 10px;
+  background-color : rgb(21, 206, 21);
+}
+
+#Application-cancel{
+  margin-top: 10px;
+  background-color: red;
+}
+/* Adjusting progress label styles */
+.container {
+  position: relative;
+  /* Additional styling as needed */
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Move up slightly */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+  }
+}
+span{
+  display:  inline-block;
+ color: green;
+}
+mat-panel-description{
+  color: green;
+}
+span mat-icon{
+  margin-bottom: -4px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  border: 1px solid #bebebe;
+  padding: 30px;
+}
+
+li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+li:before {
+  content: "\2022"; /* Bullet point */
+  position: absolute;
+  left: 0;
+  color: #007bff; /* Bullet color */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+mat-form-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 20px;
+}
+@media only screen and (min-width: 600px) {
+  form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  
+  mat-form-field {
+    width: calc(48% - 10px);
+  }
+}

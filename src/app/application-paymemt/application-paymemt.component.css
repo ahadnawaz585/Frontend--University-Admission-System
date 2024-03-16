@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust the width as needed */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  h2 {
+    color: #2969c2;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  #cancel{
+    margin-bottom: 5px;
+  }
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 100%;
+  }
+  
+  mat-form-field {
+    flex: 1 1 30%;
+  }
+  
+  button {
+    margin-left: auto;
+  }
+  
+  .small-button {
+    font-size: 10px;
+    padding: 4px 8px;
+    margin-right: 5px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .level-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .change {
+    display: flex;
+    gap: 5px;
+  }
+  
+  
+  b {
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+  span,
+  p {
+    box-sizing: border-box;
+  }
+  
+  
+  
+  @media screen and (max-width: 768px) {
+    .card {
+      width: calc(100% - 20px); /* Adjust the width and margins as needed */
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+    mat-form-field {
+      flex: 1 1 100%;
+    }
+    
+    button {
+      margin: auto;
+      margin-top: 15px;
+    }
+  
+    .edit-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+  
+    .edit-section button {
+      width: 50%;
+      margin: 5px;
+    }
+  
+    form {
+      max-width: 100%;
+      margin: auto;
+    }
+  
+    li {
+      text-align: center;
+    }
+  }
+  
+  button[color="primary"] {
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  button[color="warn"] {
+    margin-top: 5px;
+    background-color: #ff5722;
+    color: white;
+  }
+  
+  button[color="primary"]:hover,
+  button[color="primary"]:active {
+    background-color: #283593;
+  }
+  
+  button[color="warn"]:hover,
+  button[color="warn"]:active {
+    background-color: #d84315;
+  }
+  

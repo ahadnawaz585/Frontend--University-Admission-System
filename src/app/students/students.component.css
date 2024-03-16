@@ -1,0 +1,118 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* Headings */
+h2 {
+  color: #2969c2;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 100%;
+}
+
+/* Form fields */
+mat-form-field {
+  width: 100%;
+}
+
+/* Buttons */
+button {
+  margin-right: 10px;
+}
+
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between form fields */
+}
+
+.form-group mat-form-field {
+  flex: 1 0 calc(25% - 20px); /* 25% width for each field with gap in between */
+  /* Adjust width and gap as needed */
+  margin-bottom: 20px; /* Adjust spacing between rows */
+}
+.small-button {
+  font-size: 10px;
+  padding: 4px 8px;
+}
+
+/* Students List with Cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Adjust the width as needed */
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+.student-picture-container {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.student-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+  form {
+    max-width: 100%;
+    margin: auto;
+  }
+  .form-group mat-form-field {
+    flex: 1 0 calc(50% - 20px); /* Two fields in a row for smaller screens */
+    /* Adjust width and gap as needed */
+    margin-bottom: 10px; /* Adjust spacing between rows */
+  }
+  .card {
+    width: calc(100% - 20px); /* Adjust the width and margins as needed */
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}

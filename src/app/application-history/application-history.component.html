@@ -1,0 +1,19 @@
+<!-- application-history.component.html -->
+
+<div class="container">
+  <h2>Application Histories</h2>
+  <div class="card-container" *ngIf="histories.length > 0; else noHistories">
+    <div class="card" *ngFor="let history of histories">
+      <div class="card-content">
+        <p><strong>Application ID:</strong> {{ getStudentNameByApplicantId(history.applicationId) }}</p>
+        <p><strong>Status From:</strong> {{ history.statusFrom }}</p>
+        <p><strong>Status To:</strong> {{ history.statusTo }}</p>
+        <p><strong>Date of Change:</strong> {{ history.dateOfChange | date }}</p>
+        <p><strong>Admin ID:</strong> {{ history.adminId }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noHistories>
+    <p>No application histories available.</p>
+  </ng-template>
+</div>

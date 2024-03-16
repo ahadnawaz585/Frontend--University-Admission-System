@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Add New Admin</h2>
+  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+    <button mat-raised-button class="small-button" color="primary" type="submit" [disabled]="!adminForm.valid">Add Admin</button>
+  </form>
+  <hr>
+  <h2 >Admins List<mat-icon>swap_vert</mat-icon></h2>
+  <ul>
+    <li *ngFor="let admin of admins; let i = index">
+      <div class="admin-item">
+        <div class="admin-info">
+          <div>
+            <b>{{ serialNumbers[i] }}. </b>
+            <b>{{ admin.name }}</b>
+          </div>
+          <div class="change">
+            <button mat-icon-button class="small-button" color="primary" (click)="editAdmin(admin)" aria-label="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button *ngIf="admin.id !== undefined" mat-icon-button class="small-button" color="warn" (click)="deleteAdmin(admin.id)" aria-label="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>            
+        </div>
+        <div class="edit-section" *ngIf="selectedAdmin && selectedAdmin.id === admin.id && isEditing">
+          <h3>Edit Admin</h3>
+          <form>
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput [(ngModel)]="selectedAdmin.name" name="name" required>
+            </mat-form-field>
+            <button mat-raised-button class="small-button" color="primary" (click)="saveEditedAdmin()">Save</button>
+            <button mat-raised-button class="small-button" color="warn" (click)="cancelEditing()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

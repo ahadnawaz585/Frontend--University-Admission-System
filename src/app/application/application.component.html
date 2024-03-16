@@ -1,0 +1,290 @@
+<h1>Admission Form Guidelines</h1>
+<mat-progress-bar mode="determinate" [value]="progressValue">
+  <ng-template matProgressBar>
+  </ng-template>
+</mat-progress-bar>
+
+<div id="progress-labels">
+  <div class="progress-label start">Personal Information</div>
+  <div class="progress-label middle">Academic Information</div>
+  <div class="progress-label end">Contact Information</div>
+  <div class="progress-label end">Program Selection</div>
+</div>
+
+<div class="submitted">
+  <mat-accordion *ngIf="submittedStudentForm">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b> Personal Information</b>
+        </mat-panel-title>
+        <mat-panel-description>
+          Personal Information status
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <span><mat-icon>check_circle</mat-icon>Personal Information is submitted</span>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="submitted">
+  <mat-accordion *ngIf="submitEducationForm">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b> Academic Information</b>
+        </mat-panel-title>
+        <mat-panel-description>
+          Academic Information status
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <span><mat-icon>check_circle</mat-icon>Academic Information is submitted</span>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="submitted">
+  <mat-accordion *ngIf="submitContactForm">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b> Contact Information</b>
+        </mat-panel-title>
+        <mat-panel-description>
+          Contact Information status
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <span><mat-icon>check_circle</mat-icon>Contact Information is submitted</span>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="submitted">
+  <mat-accordion *ngIf="submittedPriorityForm">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b> Programs Selection</b>
+        </mat-panel-title>
+        <mat-panel-description>
+          Programs Selection status
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <span><mat-icon>check_circle</mat-icon>Programs are selected</span>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="AdmissionForm" *ngIf="admissionForm">
+  <div class="container" #scrollMe *ngIf="!submittedStudentForm">
+    <h2>Personal Information</h2>
+    <ul>
+      <li><strong>Accuracy:</strong> Enter your personal details accurately.</li>
+      <li><strong>Required Fields:</strong> Fill in all mandatory fields marked with an asterisk (*).</li>
+      <li><strong>Privacy:</strong> Your information is secure and will only be used for the intended purpose.</li>
+      <li><strong>Consent:</strong> By submitting, you agree to the collection and use of this data as stated.</li>
+      <li><strong>No Sensitive Information:</strong> Do not provide sensitive information like passwords or financial
+        details.</li>
+    </ul>
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmitStudent()">
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Picture URL</mat-label>
+        <input matInput formControlName="picture" required readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Father's Name</mat-label>
+        <input matInput formControlName="fatherName" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="number" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="dobPicker" formControlName="dob" required>
+        <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+        <mat-datepicker #dobPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Citizen</mat-label>
+        <input matInput formControlName="citizen" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Religion</mat-label>
+        <input matInput formControlName="religion" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" required>
+      </mat-form-field>
+      <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!studentForm.valid">
+        Submit Student Information
+      </button>
+    </form>
+  </div>
+
+  <div class="container" #scrollMe *ngIf="submittedStudentForm && !submitEducationForm">
+    <h2>Educational Information</h2>
+    <ul>
+      <li><strong>Accuracy:</strong> Enter accurate educational details to avoid discrepancies.</li>
+      <li><strong>Honesty:</strong> Provide truthful information about your educational background.</li>
+      <li><strong>Confidentiality:</strong> Your academic performance and institution details are treated with
+        confidentiality.</li>
+      <li><strong>Purpose:</strong> Understand that this information is being collected for educational verification
+        purposes.</li>
+    </ul>
+    <form [formGroup]="educationForm" (ngSubmit)="onSubmitEducation()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>School Name</mat-label>
+        <input matInput formControlName="schoolName" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>School Program</mat-label>
+        <mat-select matNativeControl formControlName="schoolProgram" required>
+          <mat-option value="computer">Science-computer</mat-option>
+          <mat-option value="biology">Science-biology</mat-option>
+          <mat-option value="arts">Arts</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>School Marks</mat-label>
+        <input matInput formControlName="schoolMarks" type="number" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>College Name</mat-label>
+        <input matInput formControlName="collegeName" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>College Program</mat-label>
+        <mat-select matNativeControl formControlName="collegeProgram" required>
+          <mat-option value="ICS-physics">ICS-physics</mat-option>
+          <mat-option value="ICS-stats">ICS-stats</mat-option>
+          <mat-option value="FSC-engeenering">FSC-engeenering</mat-option>
+          <mat-option value="FSC-medical">FSC-medical</mat-option>
+          <mat-option value="ICOM">ICOM</mat-option>
+          <mat-option value="FA">FA</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>College Marks</mat-label>
+        <input matInput formControlName="collegeMarks" type="number" required>
+      </mat-form-field>
+
+      <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!educationForm.valid">
+        Submit Educational Information
+      </button>
+    </form>
+  </div>
+  <div class="container" #scrollMe *ngIf="submittedStudentForm && submitEducationForm && !submitContactForm">
+    <h2>Contact Information</h2>
+    <ul>
+      <li><strong>Accuracy:</strong> Enter accurate contact details to ensure effective communication.</li>
+      <li><strong>Availability:</strong> Provide information on the best times to reach you.</li>
+      <li><strong>Confidentiality:</strong> Your contact information will be kept confidential and used solely for
+        communication purposes.</li>
+      <li><strong>Intent:</strong> Understand that sharing this information is for facilitating communication.</li>
+    </ul>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmitContact()">
+      <mat-form-field appearance="fill">
+        <mat-label>Phone No</mat-label>
+        <input matInput formControlName="phone" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" required>
+      </mat-form-field>
+      <button mat-raised-button class="submit-button" color="primary" type="submit"  [disabled]="!contactForm.valid">
+        Submit Contact Information
+      </button>
+
+    </form>
+
+  </div>
+  <div class="container" id="priority-container" #scrollMe *ngIf="submittedStudentForm && submitEducationForm && submitContactForm && !submittedPriorityForm">
+    <form [formGroup]="priorityForm" (ngSubmit)="onSubmitPriortyForm()">
+      <h2>Program Priorities Guidelines</h2>
+      <ul>
+        <li><strong>Priority Selection:</strong> Choose the priority for each pro gram by selecting from the available
+          options.</li>
+        <li><strong>Order of Preference:</strong> Prioritize programs based on your preference, with Priority 1 being
+          the most preferred.</li>
+        <li><strong>Program Options:</strong> Select programs that align with your educational interests and career
+          goals.</li>
+        <li><strong>Flexibility:</strong> You can change the priority order before submission as needed.</li>
+      </ul>
+
+      <table>
+        <tr>
+          <div class="priority-number">1</div>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Priority 1:</mat-label>
+              <mat-select formControlName="priority1" required>
+                <mat-option *ngFor="let program of programs" [value]="program.id">
+                  {{ program.programName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <div class="priority-number">2</div>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Priority 2:</mat-label>
+              <mat-select formControlName="priority2" required>
+                <mat-option *ngFor="let program of programs" [value]="program.id">
+                  {{ program.programName }}
+                </mat-option>
+                <!-- Add more program options -->
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <div class="priority-number">3</div>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Priority 3:</mat-label>
+              <mat-select formControlName="priority3" required>
+                <mat-option *ngFor="let program of programs" [value]="program.id">
+                  {{ program.programName }}
+                </mat-option>
+                <!-- Add more program options -->
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <!-- Submit Button -->
+      <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!priorityForm.valid">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+<button mat-raised-button color="primary" *ngIf="submittedStudentForm && submitEducationForm && submitContactForm && submittedPriorityForm" (click)="printChallan()">
+  Generate Challan Form
+</button>
+
+
+<!-- <button mat-raised-button id="Application-submission" (click)="onSubmitApplication()"
+  *ngIf="submittedStudentForm && submitEducationForm && submitContactForm">Save</button> -->
+  <!-- <button mat-raised-button (click)="openDialog('0ms', '0ms')">Open dialog without animation</button> -->

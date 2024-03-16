@@ -1,0 +1,163 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+h2 {
+  color: #2969c2;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+#cancel{
+  margin-bottom: 12px;
+
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  max-width: 100%;
+  align-items: center; /* Align items at the center */
+}
+
+mat-form-field {
+  flex: 1 1 30%; /* Adjust the width as needed */
+}
+
+button {
+  margin-left: auto; 
+}
+
+.small-button {
+  font-size: 10px;
+  padding: 4px 8px;
+  margin-right: 5px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.level-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change {
+  display: flex;
+  gap: 5px;
+}
+
+
+b {
+  font-size: 20px;
+  padding: 10px;
+}
+
+span,
+p {
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.small-button {
+  margin-right: 5px;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Edit section styles */
+.edit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  mat-form-field {
+    flex: 1 1 100%; /* Make fields take full width on smaller screens */
+  }
+  
+  button {
+    margin: auto; /* Center-align the button on smaller screens */
+    margin-top: 15px; /* Add spacing between button and fields */
+  }
+
+  .edit-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center; /* Center-align items in the edit section */
+  }
+
+  .edit-section button {
+    width: 50%; /* Adjust button width */
+    margin: 5px; /* Add margin */
+  }
+
+  form {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  li {
+    text-align: center;
+  }
+}
+
+/* Button colors */
+button[color="primary"] {
+  background-color: #3f51b5;
+  color: white;
+}
+
+button[color="warn"] {
+  margin-top: 5px;
+  background-color: #ff5722;
+  color: white;
+}
+
+button[color="primary"]:hover,
+button[color="primary"]:active {
+  background-color: #283593;
+}
+
+button[color="warn"]:hover,
+button[color="warn"]:active {
+  background-color: #d84315;
+}

@@ -1,0 +1,70 @@
+<div class="container">
+  <h2>Add New Level of Education</h2>
+  <form [formGroup]="levelOfEducationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Level Name</mat-label>
+      <input matInput formControlName="levelName" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Mandatory Years of Education</mat-label>
+      <input type="number" matInput formControlName="mandatoryYearsOfEducation" required>
+    </mat-form-field>
+    <button mat-raised-button class="small-button" color="primary" type="submit" [disabled]="!levelOfEducationForm.valid">
+      Add Level
+    </button>
+  </form>
+
+  <hr>
+
+  <h2 (click)="toggleSorting()">Levels of Education<mat-icon>swap_vert</mat-icon></h2>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>LEVEL NAME</th>
+          <th>MANDATORY YEARS</th>
+          <th>UPDATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let level of levelsOfEducation">
+          <tr>
+            <td>{{ level.levelName }}</td>
+            <td>{{ level.mandatoryYearsOfEducation }}</td>
+            <td>
+    
+              <button mat-icon-button class="small-button" color="primary" (click)="editLevel(level)" aria-label="Edit">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button class="small-button" color="warn" (click)="deleteLevel(level.id)" aria-label="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+            
+            </td>
+          </tr>
+          <tr class="editSection" *ngIf="selectedLevel && selectedLevel.id === level.id && isEditing">
+            <td colspan="3">
+              <div class="edit-section">
+                <h3>Edit Level</h3>
+                <form [formGroup]="levelOfEducationForm">
+                  <mat-form-field appearance="fill">
+                    <mat-label for="editLevelName">Level Name</mat-label>
+                    <input matInput id="editLevelName" type="text" [(ngModel)]="selectedLevel.levelName" formControlName="levelName" required>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill">
+                    <mat-label for="editMandatoryYears">Mandatory Years of Education</mat-label>
+                    <input matInput id="editMandatoryYears" type="number" formControlName="mandatoryYearsOfEducation" [(ngModel)]="selectedLevel.mandatoryYearsOfEducation" required>
+                  </mat-form-field> 
+                  <button mat-raised-button class="small-button2" color="primary" (click)="saveEditedLevel()">Save</button>
+                  <button id="cancelEditing" mat-raised-button class="small-button2" color="warn" (click)="cancelEditing()">Cancel</button>
+
+                </form>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

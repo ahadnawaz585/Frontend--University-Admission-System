@@ -1,0 +1,117 @@
+# Node.js
+/node_modules
+/package-lock.json
+/dist/
+/tmp/
+/*.pem
+/*.pid
+/*.lock
+/coverage/
+/.nyc_output/
+/nx-report/
+/logs
+*.log
+npm-debug.log*
+/pnpm-debug.log*
+/.yarn-integrity
+/.pnp
+/.pnp.js
+
+# Testing
+/nx-report/
+.nyc_output/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Angular
+# /angular.json
+/*.js
+/*.js.map
+/*.ts
+/*.tsbuildinfo
+/*.spec.ts
+
+# Compiled TypeScript
+*.js
+
+# Compiled JavaScript
+*.map
+
+# Application artifacts
+*.dll
+*.exe
+*.pdb
+
+# Environment variables
+.env
+.env.prod
+.env.local
+.env.development
+.env.test
+
+# Yarn
+yarn-error.log
+yarn.lock
+
+# Nx
+/nx-report/
+
+# Angular CLI
+/e2e/*.log
+/e2e/*.screenshots/
+/e2e/videos/
+
+# Cypress
+/cypress/videos
+/cypress/screenshots
+
+# Prettier
+.prettierignore
+.prettierrc
+
+# WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+/.vscode/
+.angular/
+/.angular/
+
+
+*.spec.ts
+
+package-lock.json
+package.json
+tsconfig.json
+tsconfig.app.json
+tsconfig.spec.json
+tslint.json
+
+# Compiled WebAssembly
+*.wasm
+
+# NestJS
+/dist/
+/*.js
+/npm-debug.log*
+
+# Angular cache
+.angular/cache/
+
+#build
+/dist/

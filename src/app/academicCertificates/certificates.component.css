@@ -1,0 +1,105 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  /* Headings */
+  h2 {
+    color: #2969c2;
+    margin-bottom: 15px;
+  }
+  h2{
+    cursor: pointer;
+  }
+  /* Forms */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+  }
+  
+  /* Form fields */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* Buttons */
+  button {
+    margin-right: 10px;
+  }
+  
+  .small-button {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  
+  /* List */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* List items */
+  li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  /* Student info and change section */
+  .student-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .change {
+    display: flex;
+    gap: 5px;
+  }
+  
+
+  
+  b {
+    font-size: 20px;
+  }
+
+  /* Responsive design */
+  @media screen and (max-width: 600px) {
+    form {
+      max-width: 100%;
+      margin: auto;
+    }
+  
+    li {
+      text-align: center;
+    }
+  }
+  
+  /* Button colors */
+  button[color="primary"] {
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  button[color="warn"] {
+    background-color: #ff5722;
+    color: white;
+  }
+  
+  button[color="primary"]:hover,
+  button[color="primary"]:active {
+    background-color: #283593;
+  }
+  
+  button[color="warn"]:hover,
+  button[color="warn"]:active {
+    background-color: #d84315;
+  }
+  
